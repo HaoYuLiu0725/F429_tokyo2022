@@ -1,0 +1,6 @@
+../Core/Src/encoder.cpp:20:1:Encoder::Encoder()	16	static
+../Core/Src/encoder.cpp:22:1:Encoder::Encoder(TIM_HandleTypeDef*, uint8_t, uint32_t, uint32_t)	24	static
+../Core/Src/encoder.cpp:28:6:void Encoder::init()	16	static
+../Core/Src/encoder.cpp:34:6:void Encoder::init(TIM_HandleTypeDef*, uint8_t, uint32_t, uint32_t)	24	static
+../Core/Src/encoder.cpp:47:6:void Encoder::setInverted(bool)	16	static
+../Core/Src/encoder.cpp:51:9:int32_t Encoder::readDelta()	16	static

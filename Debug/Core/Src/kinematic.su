@@ -1,0 +1,6 @@
+../Core/Src/kinematic.cpp:19:1:Kinematic::Kinematic()	16	static
+../Core/Src/kinematic.cpp:23:6:void Kinematic::init(double, double, double)	40	static
+../Core/Src/kinematic.cpp:30:6:void Kinematic::readWheelSpeed(double, double, double, double)	48	static
+../Core/Src/kinematic.cpp:38:6:void Kinematic::readRobotSpeed(double, double, double)	40	static
+../Core/Src/kinematic.cpp:45:6:void Kinematic::forwardKinematic(double, double, double, double)	56	static
+../Core/Src/kinematic.cpp:53:6:void Kinematic::inverseKinematic(double, double, double)	48	static

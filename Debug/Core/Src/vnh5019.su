@@ -1,0 +1,6 @@
+../Core/Src/vnh5019.cpp:20:1:VNH5019::VNH5019()	16	static
+../Core/Src/vnh5019.cpp:23:1:VNH5019::VNH5019(TIM_HandleTypeDef*, uint32_t, uint32_t, GPIO_TypeDef*, GPIO_TypeDef*, uint16_t, uint16_t)	24	static
+../Core/Src/vnh5019.cpp:35:6:void VNH5019::init()	16	static
+../Core/Src/vnh5019.cpp:41:6:void VNH5019::init(TIM_HandleTypeDef*, uint32_t, uint32_t, GPIO_TypeDef*, GPIO_TypeDef*, uint16_t, uint16_t)	24	static
+../Core/Src/vnh5019.cpp:56:6:void VNH5019::setInverted(bool)	16	static
+../Core/Src/vnh5019.cpp:61:6:void VNH5019::writeDuty(double)	48	static

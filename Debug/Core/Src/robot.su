@@ -1,0 +1,2 @@
+../Core/Src/robot.cpp:20:6:void Robot::init()	32	static
+../Core/Src/robot.cpp:54:8:double Robot::diff_to_omega(int32_t)	24	static

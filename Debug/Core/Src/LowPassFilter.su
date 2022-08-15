@@ -1,0 +1,6 @@
+../Core/Src/LowPassFilter.cpp:21:1:LowPassFilter::LowPassFilter()	16	static
+../Core/Src/LowPassFilter.cpp:26:1:LowPassFilter::LowPassFilter(double, double)	40	static
+../Core/Src/LowPassFilter.cpp:32:6:void LowPassFilter::init(double, double)	40	static
+../Core/Src/LowPassFilter.cpp:38:8:double LowPassFilter::update(double)	32	static
+../Core/Src/LowPassFilter.cpp:43:8:double LowPassFilter::update(double, double, double)	48	static
+../Core/Src/LowPassFilter.cpp:49:6:void LowPassFilter::reconfigureFilter(double, double)	40	static
