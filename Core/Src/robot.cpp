@@ -20,8 +20,8 @@
 void Robot::init() {
 	//Robot hardware parameters
 	wheel_radius_ 	= (double)0.075/2;	//meter
-	l_x_ 			= (double)0.248/2;	//meter
-	l_y_ 			= (double)0.200/2;	//meter
+	l_x_ 			= (double)0.163/2;	//meter
+	l_y_ 			= (double)0.184/2;	//meter
 	dt_ = 0.001; //PeriodElapsedCallback rate = 1k Hz (TIM7)
 	encoder_resolution_ = 1024;
 	reduction_ratio_ = 44; //1:44 reduction_ratio

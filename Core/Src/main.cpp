@@ -105,9 +105,9 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 			duty[i] = robot.pid[i].clacOutput();					//calculate duty cycle
 			robot.motor_[i].writeDuty(duty[i]);						//write duty cycle to VNH
 		}
-//		robot.kn_.forwardKinematic(OMEGA[0], OMEGA[1], OMEGA[2], OMEGA[3]);
-//		get_odom_vel();
-//		odom_store();
+		robot.kn_.forwardKinematic(OMEGA[0], OMEGA[1], OMEGA[2], OMEGA[3]);
+		get_odom_vel();
+		odom_store();
 	}
 	else if(htim == &htim6){	/* odometry publish FREQ : 100Hz*/
 		odom_store();
@@ -155,6 +155,7 @@ int main(void)
   MX_TIM7_Init();
   MX_USART3_UART_Init();
   MX_TIM6_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -168,6 +169,9 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	   // UART test:
+//	   uint8_t num = 10;
+//	   HAL_UART_Transmit(&huart1, &num, 1, 2);
   }
   /* USER CODE END 3 */
 }

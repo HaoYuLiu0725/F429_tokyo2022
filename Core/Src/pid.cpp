@@ -71,6 +71,7 @@ double PID::clacOutput()
 	double i = ki_ * error_int_;
 	double d = kd_ * error_diff_;
 
+	i = SATURATION(i, -0.3, 0.3);
 	output_ = p + i + d;
 	output_SAT_ = SATURATION(output_, -1, 1);
 	if(output_ != output_SAT_){
