@@ -31,13 +31,17 @@ void Robot::init() {
 	motor_[1].init(&htim12, TIM_CHANNEL_1, 4499, GPIOB, GPIOB, GPIO_PIN_12, GPIO_PIN_13);
 	motor_[2].init(&htim9, TIM_CHANNEL_1, 4499, GPIOE, GPIOE, GPIO_PIN_2, GPIO_PIN_3);
 	motor_[3].init(&htim9, TIM_CHANNEL_2, 4499, GPIOE, GPIOC, GPIO_PIN_4, GPIO_PIN_13);
-	motor_[1].setInverted(true);
-	motor_[3].setInverted(true);
+	motor_[0].setInverted(true);
+	motor_[2].setInverted(true);
 
 	encoder_[0].init(&htim2, 32, TIM_CHANNEL_1, TIM_CHANNEL_2); //(*htim, timer_bits, channel_1, channel_2)
 	encoder_[1].init(&htim5, 32, TIM_CHANNEL_1, TIM_CHANNEL_2);
 	encoder_[2].init(&htim3, 16, TIM_CHANNEL_1, TIM_CHANNEL_2);
 	encoder_[3].init(&htim4, 16, TIM_CHANNEL_1, TIM_CHANNEL_2);
+	encoder_[0].setInverted(true);
+	encoder_[1].setInverted(true);
+	encoder_[2].setInverted(true);
+	encoder_[3].setInverted(true);
 
 	pid[0].init(dt_, 0.132, 15.47, 0.0, 0); //(dt, kp, ki, kd, kb)
 	pid[1].init(dt_, 0.132, 15.47, 0.0, 0);

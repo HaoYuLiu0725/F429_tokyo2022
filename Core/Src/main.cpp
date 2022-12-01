@@ -50,6 +50,7 @@
 Robot robot;
 Speed received_vel;
 Speed odom_vel;
+Pose odom_pose;
 double target_wheel_w[4] = {0};
 double LPF_output[4] = {0};
 int32_t CNT_diff[4] = {0};
@@ -77,21 +78,33 @@ void motor_PID_test(int motor){
 	robot.motor_[motor].writeDuty(duty[motor]);				//write duty cycle to VNH5019
 }
 
-void speed_init(){
+void robot_state_init(){
 	received_vel.vx = 0;
 	received_vel.vy = 0;
 	received_vel.w  = 0;
 	odom_vel.vx = 0;
 	odom_vel.vy = 0;
 	odom_vel.w	= 0;
+	odom_pose.x = 0;
+	odom_pose.y = 0;
+	odom_pose.theta = 0;
 }
 
-void get_odom_vel(){
+void update_odom_vel(){
 	odom_vel.vx = robot.kn_.robot_speed.vx_;
 	odom_vel.vy = robot.kn_.robot_speed.vy_;
 	odom_vel.w  = robot.kn_.robot_speed.w_;
 }
 
+void update_odom_pose(){
+	double dx = robot.kn_.robot_speed.vx_ * 0.001;
+	double dy = robot.kn_.robot_speed.vy_ * 0.001;
+	double dw = robot.kn_.robot_speed.w_  * 0.001;
+
+	odom_pose.x += (dx * cos(odom_pose.theta) - dy * sin(odom_pose.theta));
+	odom_pose.y += (dx * sin(odom_pose.theta) + dy * cos(odom_pose.theta));
+	odom_pose.theta += dw;
+}
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 	if (htim == &htim7) {	/* HIGH FREQ EVENT : 1kHz*/
 		robot.kn_.inverseKinematic(received_vel.vx, received_vel.vy, received_vel.w); //from target robot speed to 4 wheel's omega
@@ -106,12 +119,12 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
 			robot.motor_[i].writeDuty(duty[i]);						//write duty cycle to VNH
 		}
 		robot.kn_.forwardKinematic(OMEGA[0], OMEGA[1], OMEGA[2], OMEGA[3]);
-		get_odom_vel();
-		odom_store();
+		update_odom_vel();
+//		update_odom_pose();
 	}
 	else if(htim == &htim6){	/* odometry publish FREQ : 100Hz*/
 		odom_store();
-		odom_pub();
+		odom_publish();
 	}
 }
 /* USER CODE END 0 */
@@ -132,8 +145,7 @@ int main(void)
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
-  speed_init(); //********* for manual test **********
+  robot_state_init(); //********* can use for manual test with setting constant speed **********
   /* USER CODE END Init */
 
   /* Configure the system clock */

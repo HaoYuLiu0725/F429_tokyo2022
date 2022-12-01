@@ -38,4 +38,11 @@ typedef struct
 	double w;
 }Speed;
 
+typedef struct
+{ /* data */
+	double x;
+	double y;
+	double theta;
+}Pose;
+
 #endif /* INC_UTILS_H_ */

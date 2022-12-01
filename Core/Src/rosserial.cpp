@@ -14,11 +14,7 @@
  *      \__\/         \__\/         \__\/
  *
  */
-
-#include <main.hpp>
 #include <rosserial.h>
-#include <Rosserial_STM32_Inc/geometry_msgs/Twist.h>
-#include <Rosserial_STM32_Inc/ros.h>
 
 void vel_callback(const geometry_msgs::Twist &msg)
 {
@@ -28,12 +24,18 @@ void vel_callback(const geometry_msgs::Twist &msg)
 }
 
 //---------------------------- definition of msg ----------------------------
-geometry_msgs::Twist real_speed;
+/* odometry */
+//nav_msgs::Odometry odom;
+geometry_msgs::Twist base_speed;
 
 //---------------------------- definition of ros ----------------------------
 ros::NodeHandle nh;
-ros::Publisher pub("base_speed", &real_speed);
 ros::Subscriber<geometry_msgs::Twist> vel_sub("/cmd_vel", vel_callback);
+/* odometry */
+//ros::Publisher odom_pub("/base_odom", &odom);
+/* base_speed */
+ros::Publisher vel_pub("/base_speed", &base_speed);
+
 
 void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart)
 {
@@ -47,20 +49,35 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 void rosserial_setup(void)
 {
     nh.initNode();
-    nh.advertise(pub);
     nh.subscribe(vel_sub);
+	/* odometry */
+//    nh.advertise(odom_pub);
+    /* base_speed */
+    nh.advertise(vel_pub);
+
     HAL_TIM_Base_Start_IT (&htim6);
 }
 
 void odom_store(void)
 {
-	real_speed.linear.x  = odom_vel.vx;
-	real_speed.linear.y  = odom_vel.vy;
-	real_speed.angular.z = odom_vel.w;
+	/* odometry */
+//	odom.twist.twist.linear.x = odom_vel.vx;
+//	odom.twist.twist.linear.y = odom_vel.vy;
+//	odom.twist.twist.angular.z = odom_vel.w;
+//	odom.pose.pose.position.x = odom_pose.x;
+//	odom.pose.pose.position.y = odom_pose.y;
+//	odom.pose.pose.orientation = tf::createQuaternionFromYaw(odom_pose.theta);
+	/* base_speed */
+	base_speed.linear.x = odom_vel.vx;
+	base_speed.linear.y = odom_vel.vy;
+	base_speed.angular.z = odom_vel.w;
 }
 
-void odom_pub(void)
+void odom_publish(void)
 {
-	pub.publish(&real_speed);
+	/* odometry */
+//	odom_pub.publish(&odom);
+	/* base_speed */
+	vel_pub.publish(&base_speed);
 	nh.spinOnce();
 }

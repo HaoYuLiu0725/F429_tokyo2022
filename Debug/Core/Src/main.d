@@ -32,7 +32,33 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
  ../Core/Inc/usart.h ../Core/Inc/gpio.h ../Core/Inc/main.hpp \
  ../Core/Inc/utils.h ../Core/Inc/robot.h ../Core/Inc/kinematic.h \
  ../Core/Inc/pid.h ../Core/Inc/vnh5019.h ../Core/Inc/encoder.h \
- ../Core/Inc/LowPassFilter.h ../Core/Inc/rosserial.h
+ ../Core/Inc/LowPassFilter.h ../Core/Inc/rosserial.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/node_handle.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/msg.h \
+ ../Core/Inc/Rosserial_STM32_Inc/rosserial_msgs/Log.h \
+ ../Core/Inc/Rosserial_STM32_Inc/rosserial_msgs/RequestParam.h \
+ ../Core/Inc/Rosserial_STM32_Inc/rosserial_msgs/TopicInfo.h \
+ ../Core/Inc/Rosserial_STM32_Inc/std_msgs/Time.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/time.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/duration.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/publisher.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/subscriber.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/service_server.h \
+ ../Core/Inc/Rosserial_STM32_Inc/ros/service_client.h \
+ ../Core/Inc/Rosserial_STM32_Inc/STM32Hardware.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Twist.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Vector3.h \
+ ../Core/Inc/Rosserial_STM32_Inc/nav_msgs/Odometry.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/PoseWithCovariance.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Pose.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Point.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Quaternion.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/TwistWithCovariance.h \
+ ../Core/Inc/Rosserial_STM32_Inc/std_msgs/Header.h \
+ ../Core/Inc/Rosserial_STM32_Inc/tf/tf.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/TransformStamped.h \
+ ../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Transform.h
 ../Core/Inc/main.h:
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../Core/Inc/stm32f4xx_hal_conf.h:
@@ -79,3 +105,29 @@ Core/Src/main.o: ../Core/Src/main.cpp ../Core/Inc/main.h \
 ../Core/Inc/encoder.h:
 ../Core/Inc/LowPassFilter.h:
 ../Core/Inc/rosserial.h:
+../Core/Inc/Rosserial_STM32_Inc/ros.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/node_handle.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/msg.h:
+../Core/Inc/Rosserial_STM32_Inc/rosserial_msgs/Log.h:
+../Core/Inc/Rosserial_STM32_Inc/rosserial_msgs/RequestParam.h:
+../Core/Inc/Rosserial_STM32_Inc/rosserial_msgs/TopicInfo.h:
+../Core/Inc/Rosserial_STM32_Inc/std_msgs/Time.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/time.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/duration.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/publisher.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/subscriber.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/service_server.h:
+../Core/Inc/Rosserial_STM32_Inc/ros/service_client.h:
+../Core/Inc/Rosserial_STM32_Inc/STM32Hardware.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Twist.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Vector3.h:
+../Core/Inc/Rosserial_STM32_Inc/nav_msgs/Odometry.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/PoseWithCovariance.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Pose.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Point.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Quaternion.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/TwistWithCovariance.h:
+../Core/Inc/Rosserial_STM32_Inc/std_msgs/Header.h:
+../Core/Inc/Rosserial_STM32_Inc/tf/tf.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/TransformStamped.h:
+../Core/Inc/Rosserial_STM32_Inc/geometry_msgs/Transform.h:
